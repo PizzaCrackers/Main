@@ -229,14 +229,12 @@ main {
     left: 125%;
 }
 
-/* Hover effect: subtle lift and brighter glass */
 .btn-primary:hover {
     background: rgba(0, 102, 255, 0.35);
     transform: translateY(-2px);
     box-shadow: 0 6px 30px rgba(0, 102, 255, 0.4);
 }
 
-/* Secondary: frosted clear glass */
 .btn-secondary {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -376,7 +374,7 @@ main {
     
 
     .mission-logo img {
-        height: 385 px;
+        height: 385px;
         width: 350px;
         padding-bottom: 5rem;
     }
