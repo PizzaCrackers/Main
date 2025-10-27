@@ -106,83 +106,74 @@ main {
 }
 
 .hero {
-    background: beige;
-    padding: 0;
-    min-height: calc(100vh - 80px);
-    position: relative;
-    color: var(--color-text);
-    overflow: hidden;
+  /* remove background-image from here */
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  position: relative;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-.hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    position: relative;
-    margin: 0;
-    width: 100%;
+/* background image + blur */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;                     
+  background: url('Images/Bacolod.jpg') center/cover no-repeat;
+  filter: blur(3px);            
+  transform: scale(1.03);        
+  z-index: 0;
+  pointer-events: none;
 }
 
-.hero-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('Images/stroked.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: .5;
-    z-index: 0;
+/* vignette / dark edges */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+               rgba(0,0,0,0.3) ,
+               rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
-    padding: 6rem 4rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-
-
-.hero-image-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-
-.hero h2 {
-    font-size: 3.4rem;
-    font-weight: 1000;
-    color: blue;
-    margin-bottom: 1.5rem;
+    align-items: center;
+    text-align: center;
+    position: relative;
     z-index: 2;
 }
 
+
+
+
+
+.hero h2 {
+    font-size: 3.8rem;
+    font-weight: 1000;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    color: transparent; 
+    -webkit-text-stroke-width: 2px; 
+    -webkit-text-stroke-color: white;
+    
+}
+
 .hero .lead {
-    font-size: 1.5rem;
-    color: var(--color-text-light);
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.9);
     font-weight: 500;
     margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 800px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     z-index: 2;
 }
 
@@ -191,14 +182,12 @@ main {
     gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: 5rem;
 }
 
 .btn-primary, .btn-secondary {
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
-    border-radius: 50px;
     font-weight: 600;
     font-size: 1.125rem;
     text-decoration: none;
@@ -247,8 +236,8 @@ main {
 }
 
 .mission {
-    min-height: 100vh;
-    background: #0c254b;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     position: relative;
     display: flex;
     align-items: center;
@@ -260,42 +249,70 @@ main {
     margin: 0 auto;
     padding: 7rem 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 4rem;
 }
 
-.mission::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.mission-content {
+    flex: 1;
+    max-width: 600px;
+    color: #2c3e50;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.mission-text {
+    flex: 1;
+}
+
+
+.mission-logo img {
     width: 100%;
     height: 100%;
-    background-image: url('Images/paper.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px #d1d9e6,
+               -20px -20px 60px #ffffff;
+    transition: transform 0.3s ease;
 }
-    
-.mission-content {
-    width: 100%;
-    max-width: 800px;
-    color: white;
-    text-align: center;
+
+.mission-logo img:hover {
+    transform: translateY(-10px);
 }
 
 .mission-content h2 {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 2rem;
-    color: white;
+    color: #2c3e50;
+    position: relative;
+}
+
+.mission-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: #3498db;
+    border-radius: 2px;
 }
 
 .mission-content p {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 auto 1rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #34495e;
+    margin: 0 0 1rem;
     line-height: 1.9;
     max-width: 700px;
 }
@@ -303,13 +320,6 @@ main {
 .mission-actions {
     margin-top: 3rem;
     text-align: center;
-}
-
-.mission-content .btn-primary {
-    font-size: 1.125rem;
-    padding: 1rem 2.5rem;
-    background: var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 }
 
 .highlights {
@@ -474,11 +484,38 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .mission .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .mission-content {
+        max-width: 100%;
+    }
+
+    .mission-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mission-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mission-logo {
+        flex: 0 0 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
     .cta-section {
         text-align: center;
         align-items: center;
         padding: 3rem 2rem;
     }
+    
     .footer-inner {
         flex-direction: column;
         gap: 1rem;
@@ -685,7 +722,6 @@ footer {
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
-    border-radius: 50px;
     font-weight: 600;
     font-size: 1.125rem;
     text-decoration: none;
@@ -714,7 +750,7 @@ footer {
 }
 
 .btn-primary2:hover {
-    background: var(--color-primary-dark);
+    background-color: gray;
     transform: translateY(-2px);
 }
 
