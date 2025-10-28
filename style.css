@@ -95,6 +95,7 @@ body {
     background: var(--color-primary);
     color: white;
     font-weight: 600;
+    border-radius: 8px  ;
     text-decoration: none;
     transition: all 0.2s ease;
 }
@@ -250,8 +251,7 @@ main {
 
 .mission {
     min-height: 80vh;
-    background: white;
-    position: relative;
+    background: linear-gradient(145deg, rgba(8,124,201,0.6), rgba(255,255,255,0.8), rgba(255, 0, 128, 0.6));    position: relative;
     display: flex;
     align-items: center;
 }
@@ -687,34 +687,38 @@ footer {
 }
 
 .action-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.15); /* Transparent glass effect */
   padding: 2rem;
   width: 500px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 8px 8px 0px #ffcc00; 
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft glassy shadow */
+  backdrop-filter: blur(15px); /* Frosted blur effect */
+  -webkit-backdrop-filter: blur(15px); /* For Safari */
+  border-radius: 20px; /* Smooth edges */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Light border */
 }
 
 .action-card:hover {
   transform: translateY(-8px);
-  box-shadow: 8px 8px 0px #ff9900;
+  box-shadow: 0 8px 32px 0 rgba(255, 204, 0, 0.6); /* Yellowish glow on hover */
 }
 
 .action-card h2 {
   font-family: 'Poppins', sans-serif;
-  color: #002b80;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Helps text pop */
 }
 
 .action-card p {
-  color: #333;
+  color: #f0f0f0;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
-
 .action-link {
   text-decoration: none;
   font-weight: 600;
@@ -746,6 +750,7 @@ footer {
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
+    border-radius: 14px;
     font-weight: 600;
     font-size: 1.125rem;
     text-decoration: none;
@@ -899,6 +904,107 @@ footer {
         white-space: nowrap;
     }
 }
+
+
+
+.shop-section {
+    padding: 6rem 0;
+    background: var(--color-background);
+}
+
+.shop-section h2 {
+    font-family: caprasimo, sans-serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
+    color: var(--color-text);
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.shop-item {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.shop-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.shop-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.shop-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.shop-item .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.shop-item .description {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.shop-item .btn-primary {
+    width: 100%;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.shop-item .btn-primary:hover {
+    background: var(--color-primary-dark);
+}
+
+@media (max-width: 1024px) {
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .shop-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .shop-item img {
+        height: 250px;
+    }
+}
+
 
 
 
