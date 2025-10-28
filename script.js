@@ -52,3 +52,19 @@ document.querySelector('.copyright').textContent =
 window.addEventListener('load', () => {
     document.querySelector('.hero').classList.add('loaded');
 });
+
+// Highlight active nav link based on URL
+window.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('#header ul li a');
+  const current = window.location.pathname.split('/').pop() || 'index.html';
+  navLinks.forEach(link => {
+    // Normalize for case and ignore query/hash
+    const linkHref = link.getAttribute('href').split('?')[0].split('#')[0].toLowerCase();
+    const currentPage = current.toLowerCase();
+    if (linkHref === currentPage) {
+      link.classList.add('current');
+    } else {
+      link.classList.remove('current');
+    }
+  });
+});
