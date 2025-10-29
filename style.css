@@ -1038,15 +1038,14 @@ footer {
 
 
 
-/*
 
 .shop-section {
-    height: 100vh;
+    height: 80vh;
     padding: 6rem 0;
     background: beige;
 }
 
-
+/*
 .story-hero {
     background: linear-gradient(135deg, #25214c, #382f70);
     color: white;
