@@ -126,8 +126,8 @@ main {
   content: "";
   position: absolute;
   inset: 0;                     
-  background: url('Images/Bacolod.jpg') center/cover no-repeat;
-  filter: blur(3px);            
+  background: url('Images/background.jpg') center/cover no-repeat;
+  filter: blur(6px);            
   transform: scale(1.03);        
   z-index: 0;
   pointer-events: none;
@@ -139,8 +139,8 @@ main {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at center,
-               rgba(0,0,0,0.3) ,
-               rgba(0,0,0,0.4) 100%);
+               rgba(0,0,0,0.6) ,
+               rgba(0,0,0,0.7) 100%);
   z-index: 1;
   pointer-events: none;
 }
